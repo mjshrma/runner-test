@@ -12,6 +12,6 @@ on:
 jobs:
   Hello-World-Job:
     runs-on:
-      - codebuild-shared-${{ github.run_id }}-${{ github.run_attempt }}
+      - codebuild-gh-runner-test-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - run: echo "Hello World!"
