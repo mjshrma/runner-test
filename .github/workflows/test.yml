@@ -1,0 +1,17 @@
+name: Test
+run-name: "${{ github.event.head_commit.message || github.event.inputs.trigger_reason || 'No message' }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      trigger_reason:
+        description: "Why are you running this workflow?"
+        required: false
+        default: "Manual run"
+
+jobs:
+  Hello-World-Job:
+    runs-on:
+      - codebuild-shared-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - run: echo "Hello World!"
